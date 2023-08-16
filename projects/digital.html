@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    
+    <div id="digital" style="font-size: 4em;">
+          
+    </div>
+
+    <script>
+       
+       setInterval(digitaltime,1000);
+       function digitaltime()
+       {
+         let t = new Date()
+           let hour = t.getHours()
+           let min = t.getMinutes()
+           let sec = t.getSeconds()
+           let am_pm = "AM"
+          
+         if(min<10)
+         {
+            min='0'+min        
+         }
+           if (hour < 10) {
+               hour= '0' + hour
+           }
+             if (sec < 10) {
+               sec= '0' + sec
+           }
+
+
+
+          if(hour>12 )
+          {
+            hour=hour-12
+            am_pm="PM"
+          }
+           let v = hour + ":" + min + ":" + sec + am_pm
+           document.getElementById("digital").innerHTML = v
+       }
+    </script>
+</body>
+</html>
